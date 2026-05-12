@@ -1,0 +1,472 @@
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    /* Buat ukuran background lebih besar (400%) agar bisa digeser */
+    background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #a1c4fd, #c2e9fb);
+background-size: 400% 400%;
+    
+    /* Panggil animasi bernama "gradient" selama 15 detik secara berulang */
+    animation: gradient 15s ease infinite;
+    
+    color: #333;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+.modal {
+    display: none; /* Sembunyi dulu */
+    position: fixed;
+    z-index: 10000;
+    left: 0; top: 0; width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    /* Warna Dasar & Tekstur UI Minecraft */
+    background-color: #c6c6c6; 
+    margin: 15% auto;
+    padding: 30px;
+    width: 85%;
+    max-width: 400px;
+    text-align: center;
+    
+    /* Border Timbul Khas Minecraft (Sama seperti section Couple kamu) */
+    border: 4px solid;
+    border-color: #ffffff #555555 #555555 #ffffff; 
+    box-shadow: 8px 8px 0px #000; /* Shadow hitam tebal di luar */
+    
+    position: relative;
+    image-rendering: pixelated;
+}
+
+/* --- DEKORASI SUDUT MODAL MINECRAFT --- */
+
+/* 1. Kiri Atas: Diamond Sword */
+.modal-content::before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width: 40px;
+    height: 40px;
+    background-image: url('NetheriteSword.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 10001;
+    image-rendering: pixelated;
+    /* Sedikit rotasi agar posisinya seperti siap menebas */
+    transform: rotate(-15deg); 
+}
+
+/* 2. Kanan Atas: Diamond Pickaxe */
+.modal-decorations::before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    width: 40px;
+    height: 40px;
+    background-image: url('EnchantedDiamondPickaxe.gif');
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 10001;
+    image-rendering: pixelated;
+    transform: rotate(15deg);
+}
+
+/* 3. Kanan Bawah: Shield */
+.modal-content::after {
+    content: "";
+    position: absolute;
+    bottom: -15px;
+    right: -15px;
+    width: 38px;
+    height: 45px;
+    background-image: url('Shield.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 10001;
+    image-rendering: pixelated;
+}
+
+/* Pastikan teks di dalam modal juga pakai font pixel biar senada */
+.modal-content h3 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 14px;
+    color: #fff;
+    text-shadow: 2px 2px #3f3f3f;
+    background: #555555; /* Header box di dalam modal */
+    padding: 8px;
+    border: 2px solid #000;
+    margin-bottom: 15px;
+}
+
+.modal-content p {
+    font-family: 'Poppins', sans-serif; /* P tetap Poppins biar enak dibaca */
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Tombol Tutup di dalam modal juga kita bikin gaya Minecraft */
+/* Tombol Tutup Mirip Tombol Kirim Minecraft */
+#closeModal {
+    /* Font Pixel */
+    font-family: 'Press Start 2P', cursive;
+    font-size: 14px;
+    
+    /* Warna Dasar & Text */
+    background-color: #6d6d6d;
+    color: #ffffff;
+    text-shadow: 2px 2px #000;
+    
+    /* Ukuran disamakan dengan tombol kirim */
+    padding: 15px 30px;
+    width: 100%;
+    margin-top: 15px;
+    cursor: pointer;
+    border: none;
+    
+    /* Efek Border Timbul Minecraft */
+    box-shadow: 
+        inset -4px -4px 0px #373737, /* Bayangan gelap bawah-kanan */
+        inset 4px 4px 0px #adb5bd,   /* Highlight terang atas-kiri */
+        0px 4px 0px #000;            /* Outline hitam bawah */
+    
+    image-rendering: pixelated;
+    transition: none; /* Khas game retro tanpa animasi lambat */
+}
+
+/* Efek saat Tombol Tutup Disorot & Ditekan */
+#closeModal:hover {
+    background-color: #8b8b8b; /* Agak terang pas disorot */
+    box-shadow: 
+        inset -4px -4px 0px #4a4a4a, 
+        inset 4px 4px 0px #ced4da,
+        0px 4px 0px #000;
+}
+
+#closeModal:active {
+    /* Efek amblas ke dalam saat diklik */
+    box-shadow: 
+        inset 4px 4px 0px #373737, 
+        inset -4px -4px 0px #adb5bd;
+    transform: translateY(2px);
+}
+
+#thankYouGif {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header Hero */
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: white;
+    border-radius: 12px;
+    margin-bottom: 30px;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* Couple Section */
+.couple {
+    text-align: center;
+    padding: 30px 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+.couple .photo {
+    width: 150px;
+    height: 150px;
+    background: #ddd;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    border: 5px solid #f0f0f0;
+    background-image: url('download.jpg'); /* Ganti dengan URL foto aslimu */
+    background-size: cover;
+    background-position: center;
+}
+
+.couple h2 {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.couple p {
+    font-size: 1.1rem;
+    color: #7f8c8d;
+}
+
+/* Event Details */
+.event-details {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+/* Gaya Border Pixel Ala Minecraft */
+.couple, .event-details, .rsvp {
+    background: #c6c6c6; /* Warna abu-abu UI Minecraft */
+    border: 4px solid;
+    /* Border dengan bayangan khas Minecraft */
+    border-color: #ffffff #555555 #555555 #ffffff; 
+    box-shadow: 4px 4px 0px #000;
+    position: relative;
+    padding: 30px;
+    image-rendering: pixelated;
+}
+
+/* Hati Minecraft di pojok-pojok */
+.couple::before, .event-details::before, .rsvp::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    width: 28px;
+    height: 25px;
+    /* Asset hati Minecraft asli */
+    background-image: url('HeartMC.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 5;
+}
+
+/* Biar makin mirip UI Minecraft, kita kasih garis pemisah gelap di dalamnya */
+.event-details h3, .rsvp h3 {
+    text-shadow: 2px 2px #3f3f3f;
+    color: #fff;
+    background: #555555;
+    padding: 5px;
+    border: 2px solid #000;
+}
+
+
+.event-details h3 {
+    font-size: 1.8rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.event-details p {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.event-details strong {
+    color: #6a11cb;
+}
+
+/* RSVP Form */
+.rsvp {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+.rsvp h3 {
+    font-size: 1.8rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#rsvpForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#rsvpForm input,
+#rsvpForm select {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+#rsvpForm button {
+    /* Font Pixel */
+    font-family: 'Press Start 2P', cursive;
+    font-size: 14px;
+    
+    /* Warna Dasar & Text */
+    background-color: #6d6d6d;
+    color: #ffffff;
+    text-shadow: 2px 2px #000;
+    
+    /* Ukuran */
+    padding: 15px 30px;
+    width: 100%;
+    cursor: pointer;
+    border: none;
+    
+    /* Efek Border Timbul Minecraft */
+    box-shadow: 
+        inset -4px -4px 0px #373737, /* Bayangan gelap bawah-kanan */
+        inset 4px 4px 0px #adb5bd,   /* Highlight terang atas-kiri */
+        0px 4px 0px #000;            /* Outline hitam bawah */
+    
+    image-rendering: pixelated;
+    transition: none; /* Minecraft gak pake transisi smooth */
+}
+
+/* Efek saat Tombol Ditekan (Hover & Active) */
+#rsvpForm button:hover {
+    background-color: #8b8b8b; /* Jadi agak terang pas disorot */
+    box-shadow: 
+        inset -4px -4px 0px #4a4a4a, 
+        inset 4px 4px 0px #ced4da,
+        0px 4px 0px #000;
+}
+
+#rsvpForm button:active {
+    /* Efek saat diklik: seolah-olah tombol masuk ke dalam */
+    box-shadow: 
+        inset 4px 4px 0px #373737, 
+        inset -4px -4px 0px #adb5bd;
+    transform: translateY(2px);
+}
+
+
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9rem;
+    color: #777;
+}
+
+#guestList li {
+    background: #f8f9fa;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+    border-left: 4px solid #6a11cb;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 { font-size: 1.8rem; }
+    .container { padding: 10px; }
+}
+
+.countdown-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.time-segment {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    border-radius: 8px;
+    min-width: 70px;
+    backdrop-filter: blur(5px);
+}
+
+.time-segment span {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.time-segment p {
+    font-size: 0.7rem !important;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+/* Overlay styles */
+#overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    color: white;
+    text-align: center;
+}
+
+.overlay-content h2 { margin-bottom: 20px; }
+
+#startButton {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    background: #6a11cb;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+/* Floating Music Button */
+.music-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #6a11cb;
+    color: white;
+    border: none;
+    z-index: 1000;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+@import url('https://googleapis.com');
+
+.hero h1, .couple h2, h3 {
+    font-family: 'Press Start 2P', cursive;
+    text-transform: uppercase;
+    font-size: 1.2rem; /* Font pixel biasanya besar, jadi kecilkan sedikit */
+    line-height: 1.8;
+}

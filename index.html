@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Undangan Digital</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com" rel="stylesheet">
+
+</head>
+<body>
+    <div id="thankYouModal" class="modal">
+    <div class="modal-content">
+        <!-- Tambahkan baris ini untuk menampung Pickaxe di kanan atas -->
+        <div class="modal-decorations"></div> 
+        
+        <img src="hachimi-call-cat-call.gif" alt="Terima Kasih" id="thankYouGif">
+        <h3>Yeay! Konfirmasi Terkirim</h3>
+        <p>Makasih ya udah sempetin ngisi!</p>
+        <button id="closeModal">Tutup</button>
+    </div>
+    </div>
+
+
+        <!-- Overlay Buka Undangan -->
+    <div id="overlay">
+        <div class="overlay-content">
+            <h2>Undangan Spesial Untukmu</h2>
+            <button id="startButton">Buka Undangan</button>
+        </div>
+    </div>
+
+    <!-- Audio Element -->
+    <audio id="myAudio" loop>
+        <source src="FIFTY FIFTY - Cupid (Twin Version) (Lyrics) - Creative Chaos.mp3" type="audio/mpeg">
+        Browser kamu tidak mendukung audio.
+    </audio>
+
+    <!-- Tombol Kontrol Musik (Floating) -->
+    <button id="musicControl" class="music-btn">
+        <span id="musicIcon">🎵</span>
+    </button>
+
+    <div class="container">
+        <header class="hero">
+            <h1>Undangan Ulang Tahun</h1>
+            <p>Saya mengundang Kalian untuk merayakan hari spesial Saya</p>
+            <div id="countdown" class="countdown-container">
+            <div class="time-segment">
+                <span id="months">0</span>
+                <p>Bulan</p>
+            </div>
+            <div class="time-segment">
+                <span id="days">0</span>
+                <p>Hari</p>
+            </div>
+            <div class="time-segment">
+                <span id="hours">0</span>
+                <p>Jam</p>
+            </div>
+            <div class="time-segment">
+                <span id="minutes">0</span>
+                <p>Menit</p>
+            </div>
+            <div class="time-segment">
+                <span id="seconds">0</span>
+                <p>Detik</p>
+            </div>
+            </div>
+
+        </header>
+
+        <!-- Taruh ini di atas section .couple -->
+        <div class="health-bar">
+            <div class="heart"></div>
+            <div class="heart"></div>
+            <div class="heart"></div>
+            <div class="heart"></div>
+            <div class="heart"></div>
+        </div>
+
+
+        <section class="couple">
+            <div class="photo"></div>
+            <!-- Jika ingin pakai tag img: <img src="OM.JPG" alt="Foto Mempelai"> -->
+            <h2>Rafif Engkha Satria</h2>
+            <p>Ulang Tahun pada 26 November 2026</p>
+        </section>
+
+        <section class="event-details">
+            <h3>Waktu & Lokasi</h3>
+            <p><strong>Penyabutan Tamu:</strong> 26 November 2026, 08:00 - 10:00</p>
+            <p><strong>Resepsi:</strong> 26 November 2026, 11:00 - 00:00</p>
+            <p><strong>Lokasi:</strong> Komplek asri, Jl. laskar, bandung</p>
+        </section>
+
+        <section class="rsvp">
+            <h3>Konfirmasi Kehadiran</h3>
+            <form id="rsvpForm">
+                <input type="text" id="name" placeholder="Nama Anda" required />
+                <input type="email" id="email" placeholder="Email" required />
+                <select id="attendance" required>
+                    <option value="">Apakah Anda hadir?</option>
+                    <option value="hadir">Hadir</option>
+                    <option value="tidak hadir">Tidak Hadir</option>
+                </select>
+                <button type="submit">Kirim</button>
+            </form>
+            <!-- ... kode sebelumnya ... -->
+        <div id="rsvpList" style="margin-top: 30px;">
+            <h4>Daftar Kehadiran:</h4>
+            <ul id="guestList" style="list-style: none; padding: 0;">
+                <!-- Nama akan muncul di sini -->
+            </ul>
+        </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 Undangan Digital Rafif. Dibuat dengan Cinta</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
