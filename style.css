@@ -462,11 +462,174 @@ footer {
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
-@import url('https://googleapis.com');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Press+Start+2P&display=swap');
 
 .hero h1, .couple h2, h3 {
     font-family: 'Press Start 2P', cursive;
     text-transform: uppercase;
     font-size: 1.2rem; /* Font pixel biasanya besar, jadi kecilkan sedikit */
     line-height: 1.8;
+}
+
+/* =========================
+   RESPONSIVE ANDROID FIX
+========================= */
+@media screen and (max-width: 768px) {
+
+    body {
+        overflow-x: hidden;
+    }
+
+    .container {
+        padding: 12px;
+    }
+
+    /* HERO */
+    .hero {
+        padding: 40px 15px;
+        border-radius: 10px;
+    }
+
+    .hero h1 {
+        font-size: 1.3rem;
+        line-height: 1.6;
+    }
+
+    .hero p {
+        font-size: 0.9rem;
+    }
+
+    /* CARD */
+    .couple,
+    .event-details,
+    .rsvp {
+        padding: 20px 15px;
+        border-width: 3px;
+        box-shadow: 3px 3px 0px #000;
+    }
+
+    /* FOTO */
+    .couple .photo {
+        width: 110px;
+        height: 110px;
+        border-width: 4px;
+    }
+
+    /* JUDUL */
+    .couple h2,
+    .event-details h3,
+    .rsvp h3 {
+        font-size: 0.9rem;
+        line-height: 1.8;
+        padding: 8px;
+    }
+
+    /* PARAGRAF */
+    .couple p,
+    .event-details p {
+        font-size: 0.95rem;
+    }
+
+    /* INPUT */
+    #rsvpForm input,
+    #rsvpForm select {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    /* BUTTON */
+    #rsvpForm button,
+    #closeModal,
+    #startButton {
+        font-size: 0.7rem;
+        padding: 14px;
+    }
+
+    /* COUNTDOWN */
+    .countdown-container {
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+
+    .time-segment {
+        min-width: 60px;
+        padding: 8px;
+    }
+
+    .time-segment span {
+        font-size: 1.1rem;
+    }
+
+    .time-segment p {
+        font-size: 0.55rem !important;
+    }
+
+    /* MODAL */
+    .modal-content {
+        width: 92%;
+        margin: 35% auto;
+        padding: 20px;
+    }
+
+    .modal-content h3 {
+        font-size: 0.7rem;
+        line-height: 1.6;
+    }
+
+    .modal-content p {
+        font-size: 0.9rem;
+    }
+
+    /* ICON DEKORASI */
+    .modal-content::before,
+    .modal-decorations::before,
+    .modal-content::after {
+        width: 28px;
+        height: 28px;
+    }
+
+    /* MUSIC BUTTON */
+    .music-btn {
+        width: 45px;
+        height: 45px;
+        bottom: 15px;
+        right: 15px;
+    }
+
+    /* FOOTER */
+    footer {
+        font-size: 0.75rem;
+        padding: 15px;
+    }
+}
+
+/* EXTRA SMALL PHONE */
+@media screen and (max-width: 400px) {
+
+    .hero h1 {
+        font-size: 1rem;
+    }
+
+    .hero p {
+        font-size: 0.8rem;
+    }
+
+    .couple h2,
+    .event-details h3,
+    .rsvp h3 {
+        font-size: 0.7rem;
+    }
+
+    #rsvpForm button,
+    #closeModal {
+        font-size: 0.6rem;
+    }
+
+    .time-segment {
+        min-width: 50px;
+    }
+
+    .time-segment span {
+        font-size: 0.9rem;
+    }
 }
